@@ -1,6 +1,6 @@
 var app = '微信';
 var temp = launchApp(app);
-var ignorePerson = ['完成', '苗莹莹', '王双'];
+var ignorePerson = ['张耀方', '童鑫麟', '陈夕珩','黎祥'];
 var flag = 0;
 
 function dz() {  //点赞功能
