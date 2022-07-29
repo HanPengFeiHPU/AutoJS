@@ -99,7 +99,7 @@ function videoList(){
         saveNumber = saveNumber+1;
         console.log(saveNumber+'\t'+likeNum+'\t'+ talkNum+'\t'+videoName);
         
-        gesture(500,[300,1500],[300,10]);
+        gesture(1000,[300,900],[300,10]);
         sleep(second);
     }
 }
@@ -114,3 +114,4 @@ function saveInfo(tempText) {
     files.append(path, tempText + '\n');
 }
 appStart();
+// videoList();
