@@ -22,6 +22,7 @@ var PlateLike = "com.zpqsi.qpcceq:id/text_like_num";
 var PlatePlay = "com.zpqsi.qpcceq:id/text_play_num";
 var PlateVideoName = "com.zpqsi.qpcceq:id/text_video_desc";
 var PlateErr = "com.zpqsi.qpcceq:id/text_load";
+var PlateTalkNum = "com.zpqsi.qpcceq:id/text_comment_num";
 
 
 function closePayment() {
@@ -101,6 +102,14 @@ function videoList(){
         
         gesture(1000,[300,900],[300,10]);
         sleep(second);
+
+        if(!id("text_recommend").exists()){
+            for (var j=0;j<4;j++){
+                back();
+            }
+            console.log("重启App");
+            appStart();            
+        }
     }
 }
 
