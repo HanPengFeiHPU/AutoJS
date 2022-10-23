@@ -18,8 +18,7 @@ function run() {
         var button = id("button6").findOne();
         if (button) {
             button.click();
-
-            console.log("if中已执行" + i + "次");
+            // click("立即秒杀");
             click("提交订单");
             // 选择日期
 
@@ -27,6 +26,7 @@ function run() {
             click("预约时间");
             click("08:30~17:00");
             click("提交预约");
+            console.log("if中已执行" + i + "次");
             continue;
         } else {
 
