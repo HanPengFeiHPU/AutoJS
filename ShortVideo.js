@@ -33,7 +33,7 @@ function closePayment() {
 
 function appStart() {
 
-    var appName = '91短視頻';
+    var appName = '短視頻';
     var isAppStart = launchApp(appName);
 
     if (isAppStart) {

@@ -17,7 +17,7 @@ ui.stop.on("click", () => {
     stop();
 });
 
-var ignorePerson = ['张耀方', '童鑫麟', '陈夕珩', '黎祥'];
+var ignorePerson = ['user1', 'user2', 'user3']; // 跳过人员
 var flag = 0;
 var noun = 0;
 

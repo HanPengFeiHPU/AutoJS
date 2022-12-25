@@ -5,6 +5,7 @@ var appName = "约苗";
 // 启动目标软件
 launchApp(appName);
 var second = 1000;
+var isClick_MS = false;
 
 sleep(3*second); // 设置等待时间，以免启动太慢
 
@@ -12,31 +13,17 @@ function run() {
 
     console.show();
     var i = 0;
-    var free_time = "";
-    var free_time_d = "";
-    var free_time_h = "";
-    var free_time_m = "";
-    var free_time_s = "";
     var can_run = false;
 
     while (true) {
-        
+        i += 1;
         // 等待运行
         if(id("button6").exists()){
             free_time = id("button6").untilFind()[0].text();
-            if(free_time.length > 8){
-                free_time_d = free_time.split("有")[1].split("天")[0];
-                free_time_h = free_time.split("天")[1].split(":")[0];
-                free_time_m = free_time.split(":")[1];
-                free_time_s = free_time.split(":")[2];
-
-                if(free_time_d=="00"&&free_time_h=="00"&&free_time_m <3){
-                    can_run = true;
-                }else{
-                    console.log("等待运行：",free_time);
-                    sleep(60*second);
-                }
-            }else{
+            console.log(free_time,i)
+            var lab = free_time.split("日")[0] 
+            if(lab != "每"){
+                id("button6").click();
                 can_run = true;
             }
         }
@@ -48,8 +35,8 @@ function run() {
 
         // 正式运行
         console.log("循环",i);
-        if(text("立即秒杀").exists()){
-            click("立即秒杀");
+        if(text("立即秒杀").exists() && isClick_MS == false){
+            isClick_MS = click("立即秒杀");
             // sleep(0.5*second);
             console.log("点击立即秒杀，i=" + i);
         }
@@ -84,7 +71,6 @@ function run() {
             console.log("已抢光，运行结束！");
             break;
         }
-        i += 1;
     }
 }
 run();
