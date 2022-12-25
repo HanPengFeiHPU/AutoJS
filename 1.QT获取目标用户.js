@@ -6,9 +6,11 @@ sleep(3 * second);
 function run() {
     console.show();
     var labName1 = "村口";
-    var labName2 = "同城";  // 推荐
+    var labName2 = "同城";  // 推荐 同城
     var ignorePerson = [];
-    var city = "商丘";
+    var city1 = "武汉";
+    var city2 = "商丘";
+    var city3 = "郑州";
     var studyLevel = "硕士";
     var currentNum = 0;
     var armNum = 0;
@@ -35,9 +37,9 @@ function run() {
                         var index = ignorePerson.indexOf(names.get(i).text());
 
                         if (index == -1) { // 在跳过人员的名单中 
-                            var temp = lables.get(i).text();
+                            var temp = lables.get(i-1).text();
                             if (labName2 == "同城") {
-                                temp = lables.get(i).text();
+                                temp = lables.get(i-1).text();
                             }
 
                             console.log(armNum + "/" + currentNum, names.get(i).text(), temp);
@@ -52,7 +54,7 @@ function run() {
                             // 颜色 #fccaee #ffe4f3
 
                             // 包含目标城市，关注
-                            if (temp.indexOf(city) > 0
+                            if ((temp.indexOf(city1) > 0 || temp.indexOf(city2) > 0 || temp.indexOf(city3) > 0)
                                 && temp.indexOf(studyLevel) > 0
                                 && color(names.get(i).bounds().right + 10, names.get(i).bounds().centerY())) {
                                 // sleep(second);
@@ -136,14 +138,20 @@ function color(x, y) {
     }
     var img = captureScreen();
 
-    var point = findColorInRegion(img, "#f7b0d6", x, y, 46, 46);
-    if (point) {
-        console.log("x = " + point.x + ", y = " + point.y);
-        return true;
-    } else {
-        console.log("没有找到");
+    //  "#ff99cc" "#f7b0d6"
+    try{
+        var point = findColorInRegion(img,  "#f7b0d6", x, y, 46, 46);
+        if (point) {
+            console.log("x = " + point.x + ", y = " + point.y);
+            return true;
+        } else {
+            console.log("没有找到");
+            return false;
+        }
+    }catch(error){
         return false;
     }
+
 }
 
 run();
