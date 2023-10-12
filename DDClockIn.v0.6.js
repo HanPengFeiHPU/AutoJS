@@ -18,7 +18,8 @@ function main() {
         var currentTime = new Date();
         var tempHour = currentTime.getHours();
         var tempMinutes = currentTime.getMinutes();
-        console.log("当前时间：", tempHour, " : ", tempMinutes);
+        var tempSeconds = currentTime.getSeconds();
+        console.log("当前时间：", tempHour, " : ", tempMinutes, " : ", tempSeconds);
         
         if(!text(target_1).exists()&&!text(lable2).exists()){
             var app = '钉钉';
@@ -61,6 +62,12 @@ function main() {
                 }
             }else{
                 console.log("关闭2中...");
+                for(var i=0;i<10;i++){
+                    back();
+                    sleep(0.1 * sec);
+                }
+            }
+            if(tempSeconds < 5){
                 for(var i=0;i<10;i++){
                     back();
                     sleep(0.1 * sec);
