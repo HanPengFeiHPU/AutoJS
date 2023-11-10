@@ -23,6 +23,10 @@ function main() {
         
         if(!text(target_1).exists()&&!text(lable2).exists()){
             var app = '钉钉';
+            if(tempHour != 8 && tempHour != 17 && tempHour != 18){
+                sleep(minute);
+                continue;
+            }
             var temp = launchApp(app);
             sleep(5 * sec);
             if(!temp){
@@ -38,7 +42,10 @@ function main() {
                 click(target_1);
                 sleep(2 * sec);
                 // “考勤打卡”
-                click(target_2);
+                for(var i=0; i<4; i++){
+                    click(target_2);
+                    sleep(sec);
+                }
             }
             sleep(10 * sec);
             console.log(lable,text(lable).exists());
