@@ -22,11 +22,12 @@ function main() {
         console.log("当前时间：", tempHour, " : ", tempMinutes, " : ", tempSeconds);
         
         if(!text(target_1).exists()&&!text(lable2).exists()){
-            var app = '钉钉';
+            
             if(tempHour != 8 && tempHour != 17 && tempHour != 18){
                 sleep(minute);
                 continue;
             }
+            var app = '钉钉';
             var temp = launchApp(app);
             sleep(5 * sec);
             if(!temp){
@@ -35,6 +36,7 @@ function main() {
         }else{
             if(tempHour != 8 && tempHour != 17 && tempHour != 18){
                 handBack();
+                sleep(5 * minute);
                 continue;
             }
             // 工作台页面
