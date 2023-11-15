@@ -24,7 +24,8 @@ function main() {
         if(!text(target_1).exists()&&!text(lable2).exists()){
             
             if(tempHour != 8 && tempHour != 17 && tempHour != 18){
-                sleep(minute);
+                handBack(); // 防止熄屏
+                sleep(5 * minute);
                 continue;
             }
             var app = '钉钉';
