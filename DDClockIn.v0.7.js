@@ -19,8 +19,21 @@ function main() {
         var tempHour = currentTime.getHours();
         var tempMinutes = currentTime.getMinutes();
         var tempSeconds = currentTime.getSeconds();
-        console.log("当前时间：", tempHour, " : ", tempMinutes, " : ", tempSeconds);
+
+        var weekDays = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+        var today = new Date();
+        var dayOfWeek = weekDays[today.getDay()];
+
+        console.log("当前时间：", tempHour, " : ", tempMinutes, " : ", tempSeconds, dayOfWeek);
         
+
+        // 周六、周日
+        if(dayOfWeek=="周六" || dayOfWeek=="周日"){
+            handBack(); // 防止熄屏
+            sleep(5 * minute);
+            continue;
+        }
+
         if(!text(target_1).exists()&&!text(lable2).exists()){
             
             if(tempHour != 8 && tempHour != 17 && tempHour != 18){
